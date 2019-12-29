@@ -58,7 +58,7 @@ header{
 
     color:#fff;
     text-transform: uppercase;
-
+    backface-visibility: hidden;
 
 }
 
@@ -67,6 +67,10 @@ header{
     font-size:60px;
     font-weight: 700;
     letter-spacing: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 1.5s;
+    /* animation-iteration-count: 3; */
+
 
 }
 .heading-primary-sub{
@@ -74,6 +78,8 @@ header{
     font-size:20px;
     font-weight: 700;
     letter-spacing: 17.5px;
+
+    animation: moveInRight 1.5s ease-out;
 }
 
 
@@ -81,15 +87,36 @@ header{
 /***************************************************************************************************************/
 
 
-@keyframes moveleft{
+@keyframes moveInLeft{
     0% {
+        opacity: 0;
+        transform: translateX(-100px);
+
 
     }
 
     80%{
+        transform: translateX(20px);
 
     }
     100%{
-        
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes moveInRight{
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80%{
+        transform: translate(-20px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0);
     }
 }
