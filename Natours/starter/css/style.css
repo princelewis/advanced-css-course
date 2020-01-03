@@ -99,6 +99,9 @@ header{
     margin-top: 5px;
     border-radius: 100px;
     transition: all .2s;
+    position: relative;
+    /* border: 1px solid yellow; */
+
 
 }
 .btn:hover{
@@ -116,10 +119,52 @@ header{
     color: #777;
 }
 
+.btn::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    transition: all 0.4s ease-out;
+
+}
+.btn-white::after{
+    background-color: white;
+}
+
+.btn:hover::after{
+
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+
+}
+.btn-animated{
+    animation: moveInBottom 0.6s ease-out .75s;
+    animation-fill-mode: backwards;
+
+}
+
 
 /***************************************************************************************************************/
 
 
+
+@keyframes moveInBottom{
+    0%{
+        opacity: 0;
+        transform: translateY(80px);
+
+    }
+
+    100%{
+        transform: translate(0);
+        opacity: 1;
+    }
+}
 
 @keyframes moveInLeft{
     0% {
